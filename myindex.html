@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Freelancer Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --primary: #ff6ba3;
+      --dark-bg: #1e1e2f;
+      --light-text: #f1f1f1;
+      --accent: #32a893;
+      --nav-bg: rgba(42, 40, 40, 0.5);
+      --section-padding: 100px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #326da8, #1e3c72);
+      color: var(--light-text);
+    }
+
+    nav {
+      background: var(--nav-bg);
+      backdrop-filter: blur(10px);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+
+    nav h2 {
+      color: var(--accent);
+      font-size: 22px;
+    }
+
+    nav ul {
+      display: flex;
+      gap: 20px;
+      list-style-type: none;
+    }
+
+    nav a {
+      text-decoration: none;
+      color: #ffddaa;
+      font-weight: 500;
+      font-size: 18px;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: var(--primary);
+    }
+
+    header {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: var(--section-padding) 20px 60px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-shadow: 2px 2px #000;
+    }
+
+    header p {
+      margin-top: 1rem;
+      font-size: 1.2rem;
+    }
+
+    .btn {
+      background-color: var(--primary);
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border: none;
+      border-radius: 5px;
+      margin-top: 2rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: #f75a94;
+      box-shadow: 0 10px 20px rgba(255, 107, 163, 0.3);
+    }
+
+    section {
+      padding: var(--section-padding) 20px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      color: #fff;
+      text-align: center;
+    }
+
+    section p {
+      text-align: center;
+      max-width: 800px;
+      margin: 0 auto 30px;
+    }
+
+    .services,
+    .portfolio {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+    .services h3{
+    font-size: 16px;
+    }
+    .services p{
+        text-align: left;
+        font-size: 14px;
+    }
+
+    .services div,
+    .portfolio .project {
+      flex: 1 1 30%;
+      background: white;
+      padding: 20px;
+      border-radius: 10px;
+      color: #333;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .services div:hover,
+    .portfolio .project:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+    }
+
+    .portfolio img {
+      width: 100%;
+      height: 50%;
+      border-radius: 8px;
+      margin-bottom: 10px;
+    }
+
+    .portfolio .project h4 {
+      text-align: left;
+      font-size: 18px;
+      color: #222;
+    }
+    .portfolio .project p{
+        font-size: 14px;
+        text-align: left;
+    }
+    .contact-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+form {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 40px;
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+}
+
+.form-group {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.form-group input {
+  flex: 1 1 48%;
+}
+
+form input,
+form textarea {
+  padding: 1rem;
+  border-radius: 8px;
+  border: none;
+  background: #fff;
+  font-size: 16px;
+  color: #333;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.2s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--primary);
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+
+    footer {
+      text-align: center;
+      padding: 30px 20px;
+      background: #ffffff;
+      color: #777;
+      margin-top: 60px;
+    }
+
+    @media (max-width: 768px) {
+      .services div,
+      .portfolio .project {
+        flex: 1 1 100%;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      header h1 {
+        font-size: 2rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navigation Bar -->
+  <nav>
+    <h2>My Digital Diary</h2>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#services">Services</a></li>
+      <li><a href="#portfolio">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Hero Section -->
+  <header>
+    <h1>Hello, I'm Aman Gupta</h1>
+    <p>A passionate Full Stack Developer | React | JavaScript | Tailwind CSS</p>
+    <p>UI/UX Enthusiast</p>
+    <a href="#contact"><button class="btn">Let's Work Together</button></a>
+  </header>
+
+  <!-- About Section -->
+  <section id="about">
+    <h2>About Me</h2>
+    <p>I am a passionate freelance designer with 5+ years of experience in web design, UI/UX, and branding. I love turning ideas into stunning visuals.</p>
+  </section>
+
+  <!-- Services Section -->
+  <section id="services">
+    <h2>Services</h2>
+    <div class="services">
+      <div>
+        <h3>Custom Website Development</h3>
+        <p>I build fast, responsive, and scalable websites tailored to your brand and goals using modern technologies like HTML, CSS, JavaScript, and React.</p>
+      </div>
+      <div>
+        <h3>UI/UX Design & Prototyping</h3>
+        <p>Clean, intuitive, and visually appealing interfaces that ensure a seamless user experience. I design with users in mind, using Figma and modern design principles.
+        </p>
+      </div>
+      <div>
+        <h3>Website Optimization & SEO
+        </h3>
+        <p>mprove your site’s speed, performance, and visibility with clean code, SEO best practices, and responsive design that ranks well on search engines.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section id="portfolio">
+    <h2>Projects</h2>
+    <div class="portfolio">
+      <div class="project">
+        <img src="https://t3.ftcdn.net/jpg/02/14/87/96/360_F_214879686_R3HFJlk6WLr1kcdvy6Q9rtNASKN0BZBS.jpg" alt="React Portfolio Website">
+        <h4>React Portfolio Website</h4>
+        <p>A modern personal portfolio built with React, showcasing smooth animations, responsive design, and project highlights.</p>
+      </div>
+      <div class="project">
+        <img src="https://www.hubspot.com/hubfs/web-development.webp" alt="Product Landing Page">
+        <h4>Product Landing Page</h4>
+        <p>Clean and high-converting landing page designed with HTML, CSS, and JavaScript for a new tech product launch.</p>
+      </div>
+      <div class="project">
+        <img src="https://www.springboard.com/blog/wp-content/uploads/2022/03/what-is-a-coding-project.png" alt="E-commerce UI">
+        <h4>E-commerce UI Design</h4>
+        <p>Fully responsive UI design for an e-commerce platform with filters, product grids, and cart interface using Tailwind CSS.</p>
+      </div>
+    </div>
+  </section>
+  
+
+  <!-- Contact Section -->
+  <section id="contact">
+    <h2>Contact Me</h2>
+    <p>Let's connect! Fill out the form below and I'll get back to you soon.</p>
+    <div class="contact-container">
+      <form>
+        <div class="form-group">
+          <input type="text" placeholder="Your Name" required>
+          <input type="email" placeholder="Your Email" required>
+        </div>
+        <textarea rows="5" placeholder="Your Message" required></textarea>
+        <button class="btn" type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+  
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 Made with ❤️ by Aman Gupta. All rights reserved.</p>
+  </footer>
+
+</body>
+
+</html>
